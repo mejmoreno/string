@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string getWordsInReverse(const string& input) {
+    string reversedWords;
+    string word;
+    for (int i = input.length() - 1; i >= 0; i--) {
+        if (input[i] == ' ') {
+            reversedWords += word + "\n";
+            word = "";
+        } else {
+            word = input[i] + word;
+        }
+    }
+    return reversedWords + word + "\n";
+}
+
+int main() {
+    string input;
+
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    cout << "Words in reverse vertical order:" << endl;
+    cout << getWordsInReverse(input);
+
+    return 0;
+}
