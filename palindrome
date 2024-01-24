@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+bool isPalindrome(const char* word) {
+    int length = strlen(word);
+    for (int i = 0; i < length / 2; i++) {
+        if (word[i] != word[length - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    char word[100];
+
+    cout << "Enter a word: ";
+    cin >> word;
+
+    if (isPalindrome(word)) {
+        cout << word << " a palindrome." << endl;
+    } else {
+        cout << word << " not a palindrome." << endl;
+    }
+
+    return 0;
+}
