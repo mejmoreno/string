@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string changeLetters(const string& word) {
+    string newString = word;
+    for (char& c : newString) {
+        if (isalpha(c))
+            c = (c - 'A' + 1) % 26 + ((c >= 'a') ? 'a' : 'A');
+    }
+    return newString;
+}
+
+int main() {
+    string word;
+
+    cout << "Enter a word: ";
+    cin >> word;
+
+    cout << "New string: " << changeLetters(word) << endl;
+
+    return 0;
+}
